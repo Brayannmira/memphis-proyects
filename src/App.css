@@ -500,8 +500,27 @@
 .dots-decoration {
   width: 78px;
   height: 78px;
-  background-image: radial-gradient(var(--ink) 2px, transparent 2px);
-  background-size: 19px 19px;
+  --dot-color: var(--ink);
+}
+
+.dots-decoration::before {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dot-color);
+  box-shadow:
+    18px 0 var(--dot-color),
+    36px 0 var(--dot-color),
+    0 18px var(--dot-color),
+    18px 18px var(--dot-color),
+    36px 18px var(--dot-color),
+    0 36px var(--dot-color),
+    18px 36px var(--dot-color),
+    36px 36px var(--dot-color);
+  content: '';
 }
 
 .hero-dots {
@@ -512,9 +531,27 @@
 .zigzag-decoration {
   width: 95px;
   height: 36px;
-  background:
-    linear-gradient(125deg, transparent 42%, var(--coral) 43% 55%, transparent 56%)
-      0 0 / 24px 34px repeat-x;
+  background: var(--zigzag-color, var(--coral));
+  clip-path: polygon(
+    0 75%,
+    12.5% 25%,
+    25% 75%,
+    37.5% 25%,
+    50% 75%,
+    62.5% 25%,
+    75% 75%,
+    87.5% 25%,
+    100% 75%,
+    100% 100%,
+    87.5% 50%,
+    75% 100%,
+    62.5% 50%,
+    50% 100%,
+    37.5% 50%,
+    25% 100%,
+    12.5% 50%,
+    0 100%
+  );
 }
 
 .hero-zigzag {
@@ -780,6 +817,7 @@
 .team-zigzag {
   top: 82px;
   left: 44px;
+  --zigzag-color: var(--ink);
 }
 
 .team-triangle {
@@ -1017,7 +1055,7 @@
 .plans-dots {
   top: 90px;
   right: 50px;
-  background-image: radial-gradient(var(--coral) 2px, transparent 2px);
+  --dot-color: var(--coral);
 }
 
 .technology-section {
